@@ -54,13 +54,7 @@
 
             loadingTimeout = setTimeout(loading, 600)
 
-            var request = $.get(
-                    "https://nominatim.openstreetmap.org/reverse?format=json&lat=" +
-                    myLat +
-                    "&lon=" +
-                    myLng
-                )
-                .done(function (data) {
+            var request = $.get("https://nominatim.openstreetmap.org/reverse?format=json&lat=" +myLat +"&lon=" +myLng).done(function (data) {
                     if (loadingTimeout) {
                         clearTimeout(loadingTimeout)
                         loadingTimeout = null
