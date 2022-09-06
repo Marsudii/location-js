@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
-    <title>LOCATION</title>
-    <meta name="viewport" content="width=device-width,maximum-scale=1,minimum-scale=1" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <head>
 
-   
+<meta charset="UTF-8" />
+<title>jquery Location</title>
+
+<meta
+    name="viewport"
+    content="width=device-width,maximum-scale=1,minimum-scale=1"/>
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
 </head>
-
 <body>
-    <div style="align:center">
-        <h1>Detail Lokasi</h1>
-        <input type="text" id="myid" readonly />
-        <br />
+<div style="align:center">
+  <h1>Detail Lokasi</h1>
+  <input type="text" id="myid" readonly />
+<br/>
 
-        <p>latitude : <input type="text" name="lat" id="lat" value="" /></p>
+  <p>latitude : <input type="text" name="lat" id="lat" value="" /></p>
 
-        <p>longitude :<input type="text" name="lng" id="lng" value="" /> </p>
+  <p>longitude :<input type="text" name="lng" id="lng" value="" /> </p>
 
-        <a id="https://maps.google.com/?ll=latitude,longitude" target="_blank"><button>LIHAT GOOGLE MAPS</button></a>
-    </div>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-    <script>
+  <a id="https://maps.google.com/?ll=latitude,longitude" target="_blank"><button>LIHAT GOOGLE MAPS</button></a>
+</div>
+
+ 
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ <script>
         var $locationText = $(".location")
 
-        let $latAbsen = $(".absenLat")
-        let $lngAbsen = $(".absenLng")
+        var $latAbsen = $(".absenLat")
+        var $lngAbsen = $(".absenLng")
 
 
 
@@ -52,13 +58,19 @@
                 myLng = pos.coords.longitude,
                 loadingTimeout
 
-            var loading = function () {
+            var loading = function() {
                 $locationText.text("fetching...")
             }
 
             loadingTimeout = setTimeout(loading, 600)
 
-            var request = $.get("https://nominatim.openstreetmap.org/reverse?format=json&lat=" +myLat +"&lon=" +myLng).done(function (data) {
+            var request = $.get(
+                    "https://nominatim.openstreetmap.org/reverse?format=json&lat=" +
+                    myLat +
+                    "&lon=" +
+                    myLng
+                )
+                .done(function(data) {
                     if (loadingTimeout) {
                         clearTimeout(loadingTimeout)
                         loadingTimeout = null
@@ -70,7 +82,7 @@
 
                     }
                 })
-                .fail(function () {
+                .fail(function() {
                     // handle error
                 })
         }
@@ -86,10 +98,9 @@
     </script>
 </body>
 
-
-
-<script src="location.js"></script>
-
+   
+   
+    <script src="location.js"></script>
+    
 </body>
-
 </html>
