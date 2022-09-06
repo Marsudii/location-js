@@ -1,27 +1,28 @@
+<!DOCTYPE html>
 <html>
-<head> 
-<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8" />
+    <title>LOCATION</title>
+    <meta name="viewport" content="width=device-width,maximum-scale=1,minimum-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<div style="align:center">
-  <h1>Detail Lokasi</h1>
-  <input type="text" id="myid" readonly />
-<br/>
+    <div style="align:center">
+        <h1>Detail Lokasi</h1>
+        <input type="text" id="myid" readonly />
+        <br />
 
-  <p>latitude : <input type="text" name="lat" id="lat" value="" /></p>
+        <p>latitude : <input type="text" name="lat" id="lat" value="" /></p>
 
-  <p>longitude :<input type="text" name="lng" id="lng" value="" /> </p>
+        <p>longitude :<input type="text" name="lng" id="lng" value="" /> </p>
 
-  <a id="https://maps.google.com/?ll=latitude,longitude" target="_blank"><button>LIHAT GOOGLE MAPS</button></a>
-</div>
-
- 
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
- <script>
+        <a id="https://maps.google.com/?ll=latitude,longitude" target="_blank"><button>LIHAT GOOGLE MAPS</button></a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
         var $locationText = $(".location")
 
         let $latAbsen = $(".absenLat")
@@ -47,7 +48,7 @@
                 myLng = pos.coords.longitude,
                 loadingTimeout
 
-            var loading = function() {
+            var loading = function () {
                 $locationText.text("fetching...")
             }
 
@@ -59,7 +60,7 @@
                     "&lon=" +
                     myLng
                 )
-                .done(function(data) {
+                .done(function (data) {
                     if (loadingTimeout) {
                         clearTimeout(loadingTimeout)
                         loadingTimeout = null
@@ -71,7 +72,7 @@
 
                     }
                 })
-                .fail(function() {
+                .fail(function () {
                     // handle error
                 })
         }
@@ -87,12 +88,11 @@
     </script>
 </body>
 
-    <script
-    src="https://code.jquery.com/jquery-3.6.1.slim.js"
-    integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk="
-    crossorigin="anonymous"></script>
-   
-    <script src="location.js"></script>
-    
+<script src="https://code.jquery.com/jquery-3.6.1.slim.js"
+    integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+
+<script src="location.js"></script>
+
 </body>
+
 </html>
